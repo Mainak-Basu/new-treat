@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import io.qameta.allure.AllureLifecycle;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.commons.io.FileUtils;
@@ -45,7 +46,10 @@ public class Base_Class {
 
 		FileUtils.copyFile(scrFile1, new File(".\\treatians_screenshots\\"+testMethodName+"_"+scrFile1name+".png"));
 
-		Allure.attachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		//Allure.attachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+	    AllureLifecycle allureLifecycle = new AllureLifecycle();
+		allureLifecycle.addAttachment("screenshot", "image/png", "png", screenshot);
 	}
 	public void ocr_test_shot(AndroidDriver driver) throws IOException{
 		Base_Class.driver=driver;
