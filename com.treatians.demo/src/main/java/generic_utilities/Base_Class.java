@@ -9,6 +9,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import io.qameta.allure.AllureLifecycle;
 import org.apache.commons.io.FileUtils;
 import org.bytedeco.javacpp.BytePointer;
 import org.bytedeco.javacpp.lept.PIX;
