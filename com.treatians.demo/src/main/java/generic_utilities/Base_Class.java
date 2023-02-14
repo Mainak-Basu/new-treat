@@ -42,16 +42,20 @@ public class Base_Class {
 		File scrFile1 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		Date d=new Date();
 		String scrFile1name=d.toString().replace(":","_").replace(" ", "_");
+
 		FileUtils.copyFile(scrFile1, new File(".\\treatians_screenshots\\"+testMethodName+"_"+scrFile1name+".png"));
-	    Allure.attachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+
+		Allure.attachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 	}
 	public void ocr_test_shot(AndroidDriver driver) throws IOException{
 		Base_Class.driver=driver;
 		File scrFile2 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
 		Date d=new Date();
 		String scrFile2name=d.toString().replace(":","_").replace(" ", "_");
+
 		FileUtils.copyFile(scrFile2, new File(".\\"+scrFile2name+".png"));
 		File destFile=new File(".\\"+scrFile2name+".png");
+
 		String fileName=destFile.getName();
 		BytePointer outText;
         TessBaseAPI api = new TessBaseAPI();

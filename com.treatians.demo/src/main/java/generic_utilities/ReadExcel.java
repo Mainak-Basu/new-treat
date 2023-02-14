@@ -16,7 +16,9 @@ public class ReadExcel {
 		String data3="";
 		try {
 			try {
+
 			FileInputStream fis = new FileInputStream(".\\excel data\\Book1.xlsx");
+
 			Workbook wb = WorkbookFactory.create(fis);
 			Sheet s = wb.getSheet("Sheet1");
 			Row r =s.getRow(rNum);
@@ -24,7 +26,9 @@ public class ReadExcel {
 			data = c.getStringCellValue();
 			}
 			catch(IllegalStateException ex) {
+
 				FileInputStream fis = new FileInputStream(".\\excel data\\Book1.xlsx");
+
 				Workbook wb = WorkbookFactory.create(fis);
 				Sheet s = wb.getSheet("Sheet1");
 				Row r =s.getRow(rNum);
