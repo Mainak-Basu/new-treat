@@ -10,6 +10,7 @@ import java.net.URL;
 import io.qameta.allure.AllureLifecycle;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import io.qameta.allure.AllureLifecycle;
 import org.apache.commons.io.FileUtils;
 import org.bytedeco.javacpp.BytePointer;
 import org.bytedeco.javacpp.lept.PIX;
@@ -48,6 +49,7 @@ public class Base_Class {
 
 		Allure.attachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 		
+
 	}
 	public void ocr_test_shot(AndroidDriver driver) throws IOException{
 		Base_Class.driver=driver;
