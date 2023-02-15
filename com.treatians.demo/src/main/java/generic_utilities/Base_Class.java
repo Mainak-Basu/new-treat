@@ -18,7 +18,9 @@ import org.bytedeco.javacpp.tesseract.TessBaseAPI;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
@@ -47,10 +49,24 @@ public class Base_Class {
 
 		FileUtils.copyFile(scrFile1, new File(".\\treatians_screenshots\\"+testMethodName+"_"+scrFile1name+".png"));
 
-		Allure.attachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
+		//Allure.attachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
 		
 
 	}
+	
+	@AfterMethod
+    public void afterMethod(ITestResult result) {
+        if (result.getStatus() == ITestResult.FAILURE) {
+            TakesScreenshot ts = (TakesScreenshot) driver;
+            byte[] screenshot = ts.getScreenshotAs(OutputType.BYTES);
+            Allure.addAttachment("Screenshot", new ByteArrayInputStream(screenshot));
+        }
+    }
+	
+	
+	
+	
+	
 	public void ocr_test_shot(AndroidDriver driver) throws IOException{
 		Base_Class.driver=driver;
 		File scrFile2 = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);

@@ -44,11 +44,6 @@
     <artifactId>allure-java-commons</artifactId>
     <version>2.21.0</version>
 </dependency>
-<<<<<<< HEAD
-
-=======
->>>>>>> 7354e0796b1af3eab396ed05b148ec2549634db8
-<!-- https://mvnrepository.com/artifact/io.appium/java-client -->
 <dependency>
     <groupId>io.appium</groupId>
     <artifactId>java-client</artifactId>
