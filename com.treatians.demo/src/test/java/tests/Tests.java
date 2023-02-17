@@ -82,6 +82,6 @@ public class Tests extends Base_Class{
 			Assert.assertTrue(l.successfully_loggedin.isDisplayed());
 			l.menu();
 			l.logout();
-		}
+	}
 		
 }
