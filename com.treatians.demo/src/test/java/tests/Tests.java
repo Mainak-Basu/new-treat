@@ -82,6 +82,6 @@ public class Tests extends Base_Class{
 			l.menu();
 			l.logout();
 	
-		}
+	}
 		
 }
